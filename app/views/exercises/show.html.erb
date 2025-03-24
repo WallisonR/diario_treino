@@ -1,0 +1,6 @@
+<div class="container mt-4">
+  <h1 class="text-center text-primary"><%= @exercise.name %></h1>
+  <p><strong>Carga:</strong> <%= @exercise.weight %> kg</p>
+  <p><strong>Repetições:</strong> <%= @exercise.reps %></p>
+  <%= link_to 'Voltar', exercises_path, class: 'btn btn-secondary' %>
+</div>

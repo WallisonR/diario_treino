@@ -1,0 +1,23 @@
+<div class="container mt-4">
+  <h1 class="text-center text-primary">Diário de Treino</h1>
+  <div class="text-center mb-4">
+    <%= link_to 'Novo Exercício', new_exercise_path, class: 'btn btn-primary' %>
+  </div>
+
+  <div class="row">
+    <% @exercises.each do |exercise| %>
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title"><%= exercise.name %></h5>
+            <p class="card-text">Carga: <%= exercise.weight %> kg</p>
+            <p class="card-text">Repetições: <%= exercise.reps %></p>
+            <%= link_to 'Ver', exercise_path(exercise), class: 'btn btn-info btn-sm' %>
+            <%= link_to 'Editar', edit_exercise_path(exercise), class: 'btn btn-warning btn-sm' %>
+            <%= link_to 'Excluir', confirm_destroy_exercise_path(exercise), method: :get, class: 'btn btn-danger btn-sm' %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

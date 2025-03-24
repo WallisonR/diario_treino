@@ -1,0 +1,31 @@
+<%= form_with(model: @exercise, local: true) do |form| %>
+  <% if @exercise.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@exercise.errors.count, "error") %> proibiram este exercício de ser salvo:</h2>
+      <ul>
+        <% @exercise.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.label :name %>
+    <%= form.text_field :name, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :weight, "Peso (kg)" %>
+    <%= form.number_field :weight, step: 0.1, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :reps, "Repetições" %>
+    <%= form.number_field :reps, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.submit "Atualizar Exercício", class: 'btn btn-primary' %>
+  </div>
+<% end %>

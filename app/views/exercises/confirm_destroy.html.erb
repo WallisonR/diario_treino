@@ -1,0 +1,10 @@
+<div class="container mt-4">
+  <h1 class="text-center text-danger">Confirmar Exclusão</h1>
+  <p>Tem certeza de que deseja excluir o exercício <strong><%= @exercise.name %></strong>?</p>
+  <%= form_with url: exercise_path(@exercise), method: :delete, local: true do |form| %>
+    <div class="text-center">
+      <%= form.submit 'Excluir', class: 'btn btn-danger' %>
+      <%= link_to 'Cancelar', exercises_path, class: 'btn btn-secondary' %>
+    </div>
+  <% end %>
+</div>
